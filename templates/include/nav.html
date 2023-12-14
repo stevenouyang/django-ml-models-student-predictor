@@ -1,0 +1,42 @@
+{% load static %}
+{% load admin_urls %}
+
+<nav class="bg-indigo-900 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+      <a href="{% url 'dashboard-index' %}" class="text-white text-lg">
+          <img src="{% static 'logo/site_logo.svg' %}" alt="Logo" class="w-8 h-8 mr-2 inline-block">
+          Django Predictor
+      </a>
+      <div>
+        <a href="{% url 'dashboard-index' %}" class="text-indigo-200 hover:text-indigo-700 focus:outline-none focus:text-indigo-700">
+            Input
+        </a>
+          <a href="{% url 'dashboard-results' %}" class="text-indigo-200 hover:text-indigo-700 focus:outline-none focus:text-indigo-700">
+            Dashboard
+        </a>
+        <a href="{% url 'admin:index' %}" target="_blank" class="text-indigo-200 hover:text-indigo-700 focus:outline-none focus:text-indigo-700">
+            Admin
+        </a>
+      </div>
+  </div>
+</nav>
+
+<script>
+  var dropdownToggle = document.getElementById("dropdown-toggle");
+  var dropdown = document.getElementById("dropdown");
+
+  dropdownToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      dropdown.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", function () {
+      if (!dropdown.classList.contains("hidden")) {
+          dropdown.classList.add("hidden");
+      }
+  });
+
+  dropdown.addEventListener("click", function (e) {
+      e.stopPropagation();
+  });
+</script>
